@@ -1,0 +1,49 @@
+# Created by httpswww.gitignore.io
+
+### Intellij ###
+# Covers JetBrains IDEs IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+.iml
+
+## Directory-based project format
+.idea
+# if you remove the above rule, at least ignore the following
+
+# User-specific stuff
+# .ideaworkspace.xml
+# .ideatasks.xml
+# .ideadictionaries
+
+# Sensitive or high-churn files
+# .ideadataSources.ids
+# .ideadataSources.xml
+# .ideasqlDataSources.xml
+# .ideadynamic.xml
+# .ideauiDesigner.xml
+
+# Gradle
+# .ideagradle.xml
+# .idealibraries
+
+# Mongo Explorer plugin
+# .ideamongoSettings.xml
+
+## File-based project format
+.ipr
+.iws
+
+## Plugin-specific files
+
+# IntelliJ
+out
+
+# mpeltonensbt-idea plugin
+.idea_modules
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
