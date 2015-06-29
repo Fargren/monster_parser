@@ -8,7 +8,4 @@ public class MonsterParser(val fileReader: FileReader) {
 
 }
 
-interface FileReader {
-    fun readFile(file: String): String
 
-}
