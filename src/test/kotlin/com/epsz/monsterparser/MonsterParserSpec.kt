@@ -2,6 +2,7 @@ package com.epsz.monsterparser
 
 import com.epsz.monsterparser.FileReader
 import com.epsz.monsterparser.MonsterParser
+import com.google.gson.Gson
 import org.hamcrest.CoreMatchers.*
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.junit.*
@@ -13,8 +14,9 @@ class MonsterParserSpec : Spek(){
 
     init{
         given("A monster parser"){
-            val fileReader: SuccessfulFileReader = SuccessfulFileReader()
-            val monsterParser: MonsterParser = MonsterParser(fileReader)
+            val fileReader = SuccessfulFileReader()
+            val parser = SuccessfulManualToJSONParser()
+            val monsterParser: MonsterParser = MonsterParser(fileReader, parser)
 
             on("parse monsters from a file"){
                 val filename:String = "fake_file.txt"
@@ -24,7 +26,8 @@ class MonsterParserSpec : Spek(){
                     assertThat(fileReader.readFilename, `is`("fake_file.txt"));
                 }
 
-                it("parses the file with the contents of teh file") {
+                it("parses the file with the contents of the file") {
+                    assertThat(parser.parsedText, `is`("file contents!"));
                 }
 
                 it ("creates a new file with the results fo the parse") {
@@ -34,6 +37,15 @@ class MonsterParserSpec : Spek(){
         }
     }
 
+}
+
+class SuccessfulManualToJSONParser: ManualToJSONParser {
+    public var parsedText: String = ""
+
+    override fun parse(manualText: String): Gson {
+        parsedText = manualText
+        return Gson()
+    }
 }
 
 class SuccessfulFileReader: FileReader {
